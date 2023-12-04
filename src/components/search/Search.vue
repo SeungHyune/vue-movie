@@ -40,8 +40,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { useMovieStore } from '/src/store/movie.ts';
-import router from '/src/routes/index.js';
+import { useMovieStore } from '~/store/movie.ts';
+import router from '~/routes/index.js';
 
 const movieStore = useMovieStore();
 const title = ref('');

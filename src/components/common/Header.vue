@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import router from '/src/routes/index.js';
-import Search from '/src/components/search/Search.vue';
+import router from '~/routes/index.js';
+import Search from '~/components/search/Search.vue';
 </script>
 
 <style scoped lang="scss">
