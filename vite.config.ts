@@ -5,9 +5,8 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   plugins: [vue()],
   resolve: {
-    alias: [{ find: '~', replacement: '/src' }]
+    alias: [{ find: '@', replacement: '/src' }]
   },
-  // SCSS 전역 사용
   css: {
     preprocessorOptions: {
       scss: {

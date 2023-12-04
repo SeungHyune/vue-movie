@@ -56,7 +56,7 @@ export const useMovieStore = defineStore('movie', {
         if (this.totalResults > this.totalMovies) {
           const response: MovieSearchList = await axios
             .get('/api/movieListAPI', {
-              params: { title: this.title, page: this.page }
+              params: { title: this.title, page }
             })
             .then((res) => res.data);
 

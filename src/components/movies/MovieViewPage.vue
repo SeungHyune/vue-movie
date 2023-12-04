@@ -34,9 +34,9 @@
 </template>
 
 <script setup lang="ts">
-import Btn from '~/components/common/Btn.vue';
-import { useMovieStore } from '~/store/movie.ts';
-import router from '~/routes/index.js';
+import Btn from '@/components/common/Btn.vue';
+import { useMovieStore } from '@/store/movie.ts';
+import router from '@/routes/index.js';
 
 const movieStore = useMovieStore();
 
