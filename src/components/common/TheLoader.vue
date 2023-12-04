@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { useMovieStore } from '@/store/movie.ts';
+import { useMovieStore } from '../../store/movie';
 const movieStore = useMovieStore();
 </script>
 

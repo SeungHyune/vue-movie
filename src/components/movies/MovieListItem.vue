@@ -19,7 +19,7 @@ import router from '../../routes/index';
 
 const movieStore = useMovieStore();
 
-async function fetchViewPage(id) {
+async function fetchViewPage(id: string) {
   await movieStore.fetchViewMovie(id);
   router.push({
     name: 'movieView',
