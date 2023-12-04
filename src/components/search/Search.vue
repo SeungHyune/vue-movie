@@ -85,7 +85,7 @@ function searchToggle() {
 
       &:hover,
       &:focus {
-        background-color: $color-bacgkround;
+        background-color: #fafafa;
       }
     }
     button {
@@ -95,11 +95,11 @@ function searchToggle() {
       height: 40px;
       border: 0;
       cursor: pointer;
-      background-color: $color-sub;
+      background-color: #e13232;
       transition: background 0.3s;
 
       &:hover {
-        background-color: $color-sub-hover;
+        background-color: #af3535;
       }
 
       svg {
@@ -113,7 +113,7 @@ function searchToggle() {
     align-items: center;
     border: 0;
     outline: 0;
-    background-color: $color-sub;
+    background-color: #e13232;
     border-radius: 5px;
     color: #fff;
     padding: 5px;
@@ -121,7 +121,7 @@ function searchToggle() {
     transition: all 0.2s;
 
     &:hover {
-      background-color: $color-sub-hover;
+      background-color: #af3535;
     }
 
     span {

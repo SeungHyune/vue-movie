@@ -6,12 +6,5 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: [{ find: '@', replacement: '/src' }]
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import "./src/scss/_variables.scss";'
-      }
-    }
   }
 });

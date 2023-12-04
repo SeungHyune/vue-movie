@@ -32,7 +32,7 @@ const movieStore = useMovieStore();
   transform: translate(-50%, -50%);
   width: 30px;
   height: 30px;
-  border: 3px solid $color;
+  border: 3px solid #ff0000;
   border-top-color: transparent;
   border-radius: 50%;
   box-sizing: border-box;

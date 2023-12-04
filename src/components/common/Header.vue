@@ -48,7 +48,7 @@ header {
     }
 
     span {
-      background: linear-gradient(to right, $color, #333);
+      background: linear-gradient(to right, #ff0000, #333);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }

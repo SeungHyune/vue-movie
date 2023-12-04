@@ -5,7 +5,6 @@ import axios from 'axios';
 const { API_KEY } = process.env;
 
 export default async function (req: VercelRequest, res: VercelResponse) {
-  console.log(API_KEY);
   const { title, page } = req.query;
   const response: Movie = await axios
     .get(`https://omdbapi.com/?apikey=${API_KEY}&s=${title}&page=${page}`)

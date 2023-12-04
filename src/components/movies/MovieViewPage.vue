@@ -76,7 +76,7 @@ header {
     h3.rating {
       margin-bottom: 20px;
       border-radius: 50px;
-      background-color: $color-sub;
+      background-color: #e13232;
       color: #fff;
       display: inline-block;
       padding: 5px 10px;
