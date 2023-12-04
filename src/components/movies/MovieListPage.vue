@@ -24,13 +24,15 @@ import router from '../../routes/index';
 import TheLoader from '../common/TheLoader.vue';
 
 const movieStore = useMovieStore();
-
+const movieId = router.currentRoute.value.params.title;
 function fetchNextMovie() {
   movieStore.page = movieStore.page + 1;
   movieStore.fetchNextMovie(movieStore.page);
 }
 
-movieStore.fetchNewMovie(router.currentRoute._value.params.title);
+if (typeof movieId === 'string') {
+  movieStore.fetchNewMovie(movieId);
+}
 </script>
 
 <style lang="scss" scoped>
