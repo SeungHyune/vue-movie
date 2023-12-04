@@ -17,12 +17,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import MovieListItem from '@/components/movies/MovieListItem.vue';
-import Btn from '@/components/common/Btn.vue';
-import { useMovieStore } from '@/store/movie.ts';
-import router from '@/routes/index.js';
-import TheLoader from '@/components/common/TheLoader.vue';
+import MovieListItem from '../movies/MovieListItem.vue';
+import Btn from '../common/Btn.vue';
+import { useMovieStore } from '../../store/movie';
+import router from '../../routes/index';
+import TheLoader from '../common/TheLoader.vue';
 
 const movieStore = useMovieStore();
 

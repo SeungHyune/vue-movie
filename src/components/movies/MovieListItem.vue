@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { useMovieStore } from '@/store/movie.ts';
-import router from '@/routes/index.js';
+import { useMovieStore } from '../../store/movie';
+import router from '../../routes/index';
 
 const movieStore = useMovieStore();
 

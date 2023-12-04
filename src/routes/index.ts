@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import MovieHome from '@/components/movies/MovieHome.vue';
-import MovieListPage from '@/components/movies/MovieListPage.vue';
-import MovieViewPage from '@/components/movies/MovieViewPage.vue';
+import MovieHome from '../components/movies/MovieHome.vue';
+import MovieListPage from '../components/movies/MovieListPage.vue';
+import MovieViewPage from '../components/movies/MovieViewPage.vue';
 
 export default createRouter({
   history: createWebHistory(),

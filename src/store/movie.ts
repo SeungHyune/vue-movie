@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { Movies, MovieSearchList, MovieInfo } from '~/types/MovieTypes.ts';
+import { Movies, MovieSearchList, MovieInfo } from '../types/MovieTypes';
 import axios from 'axios';
 
 export const useMovieStore = defineStore('movie', {

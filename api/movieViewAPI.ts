@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { MovieInfo } from '../src/Types/MovieTypes';
+import { MovieInfo } from '../src/types/MovieTypes';
 import axios from 'axios';
 
 const { API_KEY } = process.env;
