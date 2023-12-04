@@ -1,0 +1,119 @@
+$color: #ff0000;
+$color-sub: #e13232;
+$color-sub-hover: #af3535;
+$color-font: #333;
+$color-bacgkround: #fafafa;
+$color-background-hover: #eee;
+
+@media (max-width: 1400px) {
+    #app {
+        .movielist-ul {
+            padding: 0 20px;
+            grid-template-columns: repeat(4, 1fr)
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    #app {
+        .movielist-ul {
+            grid-template-columns: repeat(3, 1fr)
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    #app {
+        header {
+            .header-wrap {
+                padding: 0 10px;
+
+                h1 {
+                    font-size: 38px;
+                }
+            }
+        }
+        .movielist-ul {
+            grid-template-columns: repeat(2, 1fr)
+        }
+        .movie-sub-page {
+            top: 0;
+            height: 200px;
+            margin-bottom: 50px;
+        }
+        .movie-viewer {
+            display: block;
+            padding: 0 20px;
+            .movie-img {
+                text-align: center;
+                margin-bottom: 50px;
+                margin-right: 0;
+                img {
+                    max-width: 100%;
+                }
+            }
+            .movie-info {
+                .title {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    #app {
+        header {
+            .search-box {
+                form {
+                    input {
+                        width: 200px;
+                    }
+                }
+            }
+        }
+        .movielist-ul {
+            grid-template-columns: repeat(1, 1fr);
+
+            li {
+                .movie-img {
+                    img {
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 460px) {
+    #app {
+        header {
+            .header-wrap {
+                .search-box {
+                    .search-btn {
+                        display: flex;
+                    }
+                    form {
+                        position: absolute;
+                        right: 0;
+                        top: 80px;
+                        width:100%;
+                        transform: translateX(100vw);
+                        transition: transform 0.2s;
+                        &.on {
+                            transform: translateX(0);
+                        }
+
+                        > div {
+                            width: 100%;
+                        }
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
