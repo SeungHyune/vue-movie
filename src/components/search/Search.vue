@@ -45,8 +45,7 @@ import router from '../../routes/index';
 
 const movieStore = useMovieStore();
 const title = ref('');
-const page = ref(1);
-const searchForm = ref(null);
+const searchForm = ref<null | HTMLElement>(null);
 
 onMounted(() => {});
 
@@ -57,12 +56,14 @@ function searchMovies() {
       title: title.value
     }
   });
-  movieStore.fetchNewMovie(title.value, page.value);
+  movieStore.fetchNewMovie(title.value);
   title.value = '';
 }
 
 function searchToggle() {
-  searchForm.value.classList.toggle('on');
+  if (searchForm.value) {
+    (searchForm.value as HTMLElement).classList.toggle('on');
+  }
 }
 </script>
 

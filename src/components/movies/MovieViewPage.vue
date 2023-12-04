@@ -38,10 +38,13 @@ import Btn from '../common/Btn.vue';
 import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
 
+const movieId = router.currentRoute.value.params.id;
 const movieStore = useMovieStore();
 
 async function movieViewInit() {
-  await movieStore.fetchViewMovie(router.currentRoute._value.params.id);
+  if (typeof movieId === 'string') {
+    await movieStore.fetchViewMovie(movieId);
+  }
 }
 movieViewInit();
 </script>
