@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
 
