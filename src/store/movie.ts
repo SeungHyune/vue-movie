@@ -11,7 +11,8 @@ export const useMovieStore = defineStore('movie', {
     totalMovies: 0 as number,
     totalResults: 0 as number,
     isModal: false as boolean,
-    isLoading: false as boolean
+    isLoading: false as boolean,
+    isScollCount: 0 as number
   }),
   actions: {
     async fetchNewMovie(title: string) {
@@ -50,7 +51,7 @@ export const useMovieStore = defineStore('movie', {
     },
     async fetchNextMovie(page: number) {
       if (this.isLoading) return;
-      this.isLoading = true;
+      // this.isLoading = true;
 
       try {
         if (this.totalResults > this.totalMovies) {
@@ -67,7 +68,7 @@ export const useMovieStore = defineStore('movie', {
       } catch (error) {
         console.error(error);
       } finally {
-        this.isLoading = false;
+        // this.isLoading = false;
       }
     },
     async fetchViewMovie(id: string) {

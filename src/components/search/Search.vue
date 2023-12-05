@@ -18,7 +18,7 @@
   <form
     ref="searchForm"
     @submit.prevent="searchMovies">
-    <div class="">
+    <div>
       <input
         v-model="title"
         placeholder="검색어를 입력해주세요." />
@@ -47,8 +47,6 @@ const movieStore = useMovieStore();
 const title = ref('');
 const searchForm = ref<null | HTMLElement>(null);
 
-onMounted(() => {});
-
 function searchMovies() {
   router.push({
     name: 'movieList',
@@ -56,6 +54,7 @@ function searchMovies() {
       title: title.value
     }
   });
+  movieStore.isScollCount = 0;
   movieStore.fetchNewMovie(title.value);
   title.value = '';
 }
