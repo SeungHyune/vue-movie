@@ -51,7 +51,6 @@ export const useMovieStore = defineStore('movie', {
     },
     async fetchNextMovie(page: number) {
       if (this.isLoading) return;
-      // this.isLoading = true;
 
       try {
         if (this.totalResults > this.totalMovies) {
@@ -67,8 +66,6 @@ export const useMovieStore = defineStore('movie', {
         }
       } catch (error) {
         console.error(error);
-      } finally {
-        // this.isLoading = false;
       }
     },
     async fetchViewMovie(id: string) {
