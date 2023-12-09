@@ -42,6 +42,7 @@ function fetchNextMovie() {
 const observer = new IntersectionObserver(
   (entry) => {
     if (entry[0].isIntersecting) {
+      console.log('화면 끝');
       if (movieStore.isScollCount === 0 && typeof movieId === 'string') {
         movieStore.fetchNewMovie(movieId);
         movieStore.isScollCount += 1;
@@ -65,7 +66,8 @@ onMounted(() => {
 <style lang="scss" scoped>
 .movielist-box {
   max-width: 1400px;
-  margin: 40px auto;
+  margin: 40px auto 0;
+  min-height: 300px;
   position: relative;
 
   .movie-search-title {
@@ -87,6 +89,7 @@ onMounted(() => {
   grid-template-rows: 1fr;
   grid-column-gap: 40px;
   grid-row-gap: 40px;
+  margin-bottom: 50px;
 }
 
 .not-found-modal {
@@ -99,6 +102,7 @@ onMounted(() => {
   position: absolute;
   width: 100%;
   height: 100px;
-  bottom: 50px;
+  left: 0;
+  bottom: 0;
 }
 </style>
