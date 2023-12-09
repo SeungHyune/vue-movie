@@ -7,9 +7,15 @@ $color-background-hover: #eee;
 
 @media (max-width: 1400px) {
     #app {
-        .movielist-ul {
+        header .header-wrap {
             padding: 0 20px;
-            grid-template-columns: repeat(4, 1fr)
+        }
+        .movielist-box {
+            padding: 0 20px;
+        
+            .movielist-ul {
+                grid-template-columns: repeat(4, 1fr)
+            }
         }
     }
 }

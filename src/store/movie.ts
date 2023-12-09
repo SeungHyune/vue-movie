@@ -10,7 +10,6 @@ export const useMovieStore = defineStore('movie', {
     page: 1 as number,
     totalMovies: 0 as number,
     totalResults: 0 as number,
-    isModal: false as boolean,
     isLoading: false as boolean,
     isScollCount: 0 as number
   }),
@@ -24,7 +23,6 @@ export const useMovieStore = defineStore('movie', {
         this.totalMovies = 0;
         this.totalResults = 0;
         this.page = 1;
-        this.isModal = false;
         this.movies = [];
 
         const response: MovieSearchList = await axios
@@ -37,11 +35,9 @@ export const useMovieStore = defineStore('movie', {
         if (Search) {
           this.movies = Search;
           this.totalResults = Number(totalResults);
-          this.isModal = false;
           this.totalMovies += Search.length;
         } else {
           this.movies = Search;
-          this.isModal = true;
         }
       } catch (error) {
         console.error(error);

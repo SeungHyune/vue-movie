@@ -1,8 +1,14 @@
 <template>
   <div class="movielist-box">
     <TheLoader />
+    <h3
+      v-show="movieStore.totalResults"
+      class="movie-search-title">
+      {{ movieStore.title }}
+      <span>총 {{ movieStore.totalResults }}건 검색</span>
+    </h3>
     <ul
-      v-if="!movieStore.isModal"
+      v-if="movieStore.totalResults"
       class="movielist-ul">
       <MovieListItem />
     </ul>
@@ -36,7 +42,6 @@ function fetchNextMovie() {
 const observer = new IntersectionObserver(
   (entry) => {
     if (entry[0].isIntersecting) {
-      console.log('화면 끝');
       if (movieStore.isScollCount === 0 && typeof movieId === 'string') {
         movieStore.fetchNewMovie(movieId);
         movieStore.isScollCount += 1;
@@ -59,12 +64,24 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .movielist-box {
-  position: relative;
-  min-height: 300px;
-}
-.movielist-ul {
   max-width: 1400px;
   margin: 40px auto;
+  position: relative;
+
+  .movie-search-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #e13232;
+    margin-bottom: 10px;
+
+    span {
+      font-size: 20px;
+      color: #000;
+    }
+  }
+}
+.movielist-ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
