@@ -1,52 +1,60 @@
 <template>
   <div
-    :style="{ backgroundImage: `url(${movieStore.movieInfo.Poster})` }"
-    class="movie-sub-page"></div>
-  <div class="movie-viewer">
-    <div class="movie-img">
-      <img :src="movieStore.movieInfo.Poster" />
+    v-if="movieStore.movieInfo.Title"
+    class="movie-view-page">
+    <div
+      :style="{ backgroundImage: `url(${movieStore.movieInfo.Poster})` }"
+      class="movie-sub-page"></div>
+    <div class="movie-viewer">
+      <div class="movie-img">
+        <img
+          :src="
+            movieStore.movieInfo.Poster === 'N/A'
+              ? '/src/images/temporary.jpg'
+              : movieStore.movieInfo.Poster
+          " />
+      </div>
+      <div class="movie-info">
+        <h3 class="title">{{ movieStore.movieInfo.Title }}</h3>
+        <h3 class="rating">{{ movieStore.movieInfo.imdbRating }}</h3>
+        <ul class="movie-info-list">
+          <li>
+            <strong>Director</strong
+            ><span>{{ movieStore.movieInfo.Director }}</span>
+          </li>
+          <li>
+            <strong>Actors</strong
+            ><span>{{ movieStore.movieInfo.Actors }}</span>
+          </li>
+          <li>
+            <strong>Released</strong>
+            <span>{{ movieStore.movieInfo.Released }}</span>
+          </li>
+          <li>
+            <strong>Plot</strong>
+            <span>{{ movieStore.movieInfo.Plot }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="movie-info">
-      <h3 class="title">{{ movieStore.movieInfo.Title }}</h3>
-      <h3 class="rating">{{ movieStore.movieInfo.imdbRating }}</h3>
-      <ul class="movie-info-list">
-        <li>
-          <strong>Director</strong
-          ><span>{{ movieStore.movieInfo.Director }}</span>
-        </li>
-        <li>
-          <strong>Actors</strong><span>{{ movieStore.movieInfo.Actors }}</span>
-        </li>
-        <li>
-          <strong>Released</strong>
-          <span>{{ movieStore.movieInfo.Released }}</span>
-        </li>
-        <li>
-          <strong>Plot</strong>
-          <span>{{ movieStore.movieInfo.Plot }}</span>
-        </li>
-      </ul>
-    </div>
+    <Btn
+      title="Prev Page"
+      @click="router.back()" />
   </div>
-  <Btn
-    title="Prev Page"
-    @click="router.back()" />
 </template>
 
 <script setup lang="ts">
-import Btn from '../common/Btn.vue';
 import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
+import { useRoute } from 'vue-router';
+import Btn from '../common/Btn.vue';
 
-const movieId = router.currentRoute.value.params.id;
+const route = useRoute();
 const movieStore = useMovieStore();
 
-async function movieViewInit() {
-  if (typeof movieId === 'string') {
-    await movieStore.fetchViewMovie(movieId);
-  }
+if (typeof route.params.id === 'string') {
+  movieStore.fetchMovieViewPage(route.params.id);
 }
-movieViewInit();
 </script>
 
 <style scoped lang="scss">

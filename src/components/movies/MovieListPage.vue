@@ -1,6 +1,5 @@
 <template>
   <div class="movielist-box">
-    <TheLoader />
     <h3
       v-show="movieStore.totalResults"
       class="movie-search-title">
@@ -28,7 +27,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import MovieListItem from '../movies/MovieListItem.vue';
-import TheLoader from '../common/TheLoader.vue';
 import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
 
@@ -36,19 +34,14 @@ const movieStore = useMovieStore();
 const movieId = router.currentRoute.value.params.title;
 const observerDiv = ref<null | HTMLElement>(null);
 
-function fetchNextMovie() {
-  movieStore.page = movieStore.page + 1;
-  movieStore.fetchNextMovie(movieStore.page);
-}
-
 const observer = new IntersectionObserver(
   (entry) => {
     if (entry[0].isIntersecting) {
-      if (movieStore.isScollCount === 0 && typeof movieId === 'string') {
-        movieStore.fetchNewMovie(movieId);
-        movieStore.isScollCount += 1;
-      } else if (movieStore.totalResults > movieStore.totalMovies) {
-        fetchNextMovie();
+      if (movieStore.movies.length === 0 && typeof movieId === 'string') {
+        movieStore.fetchSearchMovie(movieId);
+      } else {
+        movieStore.page = movieStore.page + 1;
+        movieStore.fetchNextMovie(movieStore.page);
       }
     }
   },
