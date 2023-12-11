@@ -4,7 +4,10 @@
     :key="movie.imdbID"
     @click="fetchViewPage(movie.imdbID)">
     <div class="movie-img">
-      <img :src="movie.Poster" />
+      <img
+        :src="
+          movie.Poster === 'N/A' ? '/src/images/temporary.jpg' : movie.Poster
+        " />
     </div>
     <div class="movie-info">
       <strong>{{ movie.Title }}</strong>

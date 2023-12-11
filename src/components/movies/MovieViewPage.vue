@@ -29,7 +29,7 @@
     </div>
   </div>
   <Btn
-    title="Back"
+    title="Prev Page"
     @click="router.back()" />
 </template>
 
