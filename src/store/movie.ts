@@ -6,38 +6,29 @@ export const useMovieStore = defineStore('movie', {
   state: () => ({
     movies: [] as Movies,
     movieInfo: {} as MovieInfo,
-    title: '' as string,
-    page: 1 as number,
-    totalMovies: 0 as number,
-    totalResults: 0 as number,
-    isLoading: false as boolean,
-    isScollCount: 0 as number
+    title: '',
+    page: 1,
+    totalResults: 0,
+    isLoading: false
   }),
   actions: {
-    async fetchNewMovie(title: string) {
+    async fetchSearchMovie(title: string) {
       if (this.isLoading) return;
       this.isLoading = true;
 
       try {
         this.title = title;
-        this.totalMovies = 0;
-        this.totalResults = 0;
-        this.page = 1;
-        this.movies = [];
 
-        const response: MovieSearchList = await axios
-          .get('/api/movieListAPI', {
-            params: { title: this.title, page: this.page }
-          })
-          .then((res) => res.data);
+        const response = await axios.get('/api/movieListAPI', {
+          params: { title: this.title, page: this.page }
+        });
 
-        const { Search, totalResults } = response;
+        const { data } = response;
+        const { Search, totalResults } = data;
+
         if (Search) {
           this.movies = Search;
           this.totalResults = Number(totalResults);
-          this.totalMovies += Search.length;
-        } else {
-          this.movies = Search;
         }
       } catch (error) {
         console.error(error);
@@ -49,28 +40,30 @@ export const useMovieStore = defineStore('movie', {
       if (this.isLoading) return;
 
       try {
-        if (this.totalResults > this.totalMovies) {
-          const response: MovieSearchList = await axios
-            .get('/api/movieListAPI', {
-              params: { title: this.title, page }
-            })
-            .then((res) => res.data);
+        if (this.totalResults > this.movies.length) {
+          const response = await axios.get('/api/movieListAPI', {
+            params: { title: this.title, page }
+          });
 
-          const { Search } = response;
+          const { data } = response;
+          const { Search } = data;
           this.movies = [...this.movies, ...Search];
-          this.totalMovies += Search.length;
         }
       } catch (error) {
         console.error(error);
       }
     },
-    async fetchViewMovie(id: string) {
+    async fetchMovieViewPage(id: string) {
       this.isLoading = true;
+      this.movieInfo = {} as MovieInfo;
+
       try {
-        const response: MovieInfo = await axios
-          .get('/api/movieViewAPI', { params: { id } })
-          .then((res) => res.data);
-        this.movieInfo = response;
+        const response = await axios.get('/api/movieViewAPI', {
+          params: { id }
+        });
+
+        const { data } = response;
+        this.movieInfo = data;
       } catch (error) {
         console.log(error);
       } finally {
