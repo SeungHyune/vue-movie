@@ -15,7 +15,11 @@ export const useMovieStore = defineStore('movie', {
     async fetchMoviesListData(title?: string) {
       if (this.isLoading) return;
 
-      this.isLoading = true;
+      if (this.movies.length === 0) {
+        this.isLoading = true;
+      } else {
+        this.isLoading = false;
+      }
 
       try {
         if (
