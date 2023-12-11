@@ -42,7 +42,6 @@ function fetchNextMovie() {
 const observer = new IntersectionObserver(
   (entry) => {
     if (entry[0].isIntersecting) {
-      console.log('화면 끝');
       if (movieStore.isScollCount === 0 && typeof movieId === 'string') {
         movieStore.fetchNewMovie(movieId);
         movieStore.isScollCount += 1;
