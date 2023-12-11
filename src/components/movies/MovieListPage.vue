@@ -7,11 +7,13 @@
       {{ movieStore.title }}
       <span>총 {{ movieStore.totalResults }}건 검색</span>
     </h3>
-    <ul
+    <div
       v-if="movieStore.totalResults"
-      class="movielist-ul">
-      <MovieListItem />
-    </ul>
+      class="movielist-wrapper">
+      <ul class="movielist-ul">
+        <MovieListItem />
+      </ul>
+    </div>
     <div
       v-else
       class="not-found-modal">
