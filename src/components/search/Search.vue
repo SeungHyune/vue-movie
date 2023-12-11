@@ -40,22 +40,23 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
+import { useMovieStore } from '../../store/movie';
 
 const movieStore = useMovieStore();
 const title = ref('');
 const searchForm = ref<null | HTMLElement>(null);
 
 function searchMovies() {
+  movieStore.$reset();
   router.push({
     name: 'movieList',
     params: {
       title: title.value
     }
   });
-  movieStore.isScollCount = 0;
-  movieStore.fetchNewMovie(title.value);
+
+  movieStore.fetchSearchMovie(title.value);
   title.value = '';
 }
 
