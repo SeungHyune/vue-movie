@@ -28,20 +28,24 @@
 import { ref, onMounted } from 'vue';
 import MovieListItem from '../movies/MovieListItem.vue';
 import { useMovieStore } from '../../store/movie';
-import router from '../../routes/index';
+import { useRoute } from 'vue-router';
+
+const router = useRoute();
 
 const movieStore = useMovieStore();
-const movieId = router.currentRoute.value.params.title;
 const observerDiv = ref<null | HTMLElement>(null);
 
 const observer = new IntersectionObserver(
   (entry) => {
     if (entry[0].isIntersecting) {
-      if (movieStore.movies.length === 0 && typeof movieId === 'string') {
-        movieStore.fetchSearchMovie(movieId);
+      if (
+        movieStore.movies.length === 0 &&
+        typeof router.params.title === 'string'
+      ) {
+        movieStore.fetchMoviesListData(router.params.title);
       } else {
         movieStore.page = movieStore.page + 1;
-        movieStore.fetchNextMovie(movieStore.page);
+        movieStore.fetchMoviesListData();
       }
     }
   },

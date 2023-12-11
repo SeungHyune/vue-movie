@@ -49,15 +49,18 @@ const searchForm = ref<null | HTMLElement>(null);
 
 function searchMovies() {
   movieStore.$reset();
-  router.push({
-    name: 'movieList',
-    params: {
-      title: title.value
-    }
-  });
 
-  movieStore.fetchSearchMovie(title.value);
-  title.value = '';
+  if (title.value.trim()) {
+    router.push({
+      name: 'movieList',
+      params: {
+        title: title.value
+      }
+    });
+
+    movieStore.fetchMoviesListData(title.value);
+    title.value = '';
+  }
 }
 
 function searchToggle() {

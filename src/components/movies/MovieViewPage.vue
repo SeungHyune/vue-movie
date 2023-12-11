@@ -53,7 +53,7 @@ const route = useRoute();
 const movieStore = useMovieStore();
 
 if (typeof route.params.id === 'string') {
-  movieStore.fetchMovieViewPage(route.params.id);
+  movieStore.fetchMovieViewData(route.params.id);
 }
 </script>
 
