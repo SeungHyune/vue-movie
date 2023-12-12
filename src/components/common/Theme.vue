@@ -5,8 +5,8 @@
     <img
       :src="
         movieStore.isTheme
-          ? '/image/theme/light-icon.png'
-          : '/image/theme/dark-icon.png'
+          ? 'https://github.com/SeungHyune/vue-movie/blob/main/image/theme/light-icon.png?raw=true'
+          : 'https://github.com/SeungHyune/vue-movie/blob/main/image/theme/dark-icon.png?raw=true'
       " />
   </button>
 </template>
@@ -25,7 +25,7 @@ const movieStore = useMovieStore();
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 50%;
   padding: 5px;
   margin-left: 15px;
