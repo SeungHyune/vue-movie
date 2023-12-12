@@ -98,19 +98,12 @@ $color-background-hover: #eee;
         header {
             .header-wrap {
                 .search-box {
-                    .search-btn {
-                        display: flex;
-                    }
                     form {
                         position: absolute;
                         right: 0;
                         top: 80px;
                         width:100%;
-                        transform: translateX(100vw);
                         transition: transform 0.2s;
-                        &.on {
-                            transform: translateX(0);
-                        }
 
                         > div {
                             width: 100%;
@@ -124,6 +117,9 @@ $color-background-hover: #eee;
         }
 
         main {
+            .movielist-box {
+                margin: 70px auto 0;
+            }
             .movie-viewer {
                 .movie-img {
                     width: 100%;
