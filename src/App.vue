@@ -17,5 +17,6 @@ body {
   padding: 80px 0 20px;
   box-sizing: border-box;
   background-color: #fafafa;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 </style>

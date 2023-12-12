@@ -78,6 +78,8 @@ onMounted(() => {
     span {
       font-size: 20px;
       color: #000;
+      font-family: 'Noto Sans KR', sans-serif;
+      letter-spacing: -1.5px;
     }
   }
 }

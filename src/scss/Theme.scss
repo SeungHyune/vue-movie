@@ -1,5 +1,6 @@
 body.dark {
     background-color: black;
+    color: #fff;
 
     header {
         background-color: black;
@@ -25,12 +26,12 @@ body.dark {
     }
 
     main {
-        .content {
-            color: #fff;
-        }
-        
-        .movie-viewer {
-            color: #fff;
+        .movielist-box {
+            .movie-search-title {
+                span {
+                    color: #fff;
+                }
+            }
         }
     }
 }
