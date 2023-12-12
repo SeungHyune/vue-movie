@@ -49,8 +49,8 @@ export const useMovieStore = defineStore('movie', {
             this.totalResults = Number(totalResults);
           }
         }
-      } catch (e) {
-        console.error(e);
+      } catch (error) {
+        console.error(error);
       } finally {
         this.isLoading = false;
       }
@@ -66,7 +66,6 @@ export const useMovieStore = defineStore('movie', {
 
         const { data }: AxiosResponse<MovieViewData> = response;
         this.movieInfo = data;
-        console.log(this.movieInfo);
       } catch (error) {
         console.log(error);
       } finally {
