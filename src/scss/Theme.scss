@@ -1,0 +1,32 @@
+body.dark {
+    background-color: black;
+
+    header {
+        background-color: black;
+        box-shadow: none;
+        .header-wrap {
+            span {
+                background-image: linear-gradient(to right, #ff0000, #e13232);
+            }
+
+            .search-box {
+                form {
+                    input {
+                        background-color: #252525;
+                        color: #fff;
+                    }
+                }
+            }
+
+            .theme-button {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+
+    main {
+        .movie-viewer {
+            color: #fff;
+        }
+    }
+}

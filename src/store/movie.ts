@@ -9,9 +9,14 @@ export const useMovieStore = defineStore('movie', {
     title: '',
     page: 1,
     totalResults: 0,
-    isLoading: false
+    isLoading: false,
+    isTheme: false
   }),
   actions: {
+    themeChange() {
+      document.body.classList.toggle('dark');
+      this.isTheme = !this.isTheme;
+    },
     async fetchMoviesListData(title?: string) {
       if (this.isLoading) return;
 

@@ -4,6 +4,7 @@
       <h1 @click="router.push('/')"><span>MovieTV</span></h1>
       <div class="search-box">
         <Search />
+        <Theme />
       </div>
     </div>
   </header>
@@ -12,6 +13,7 @@
 <script setup lang="ts">
 import router from '../../routes/index';
 import Search from '../search/Search.vue';
+import Theme from '../common/Theme.vue';
 </script>
 
 <style scoped lang="scss">
@@ -51,6 +53,11 @@ header {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
   }
 }
 </style>

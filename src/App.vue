@@ -11,6 +11,8 @@ import TheLoader from './components/common/TheLoader.vue';
 </script>
 
 <style>
+@import './scss/Theme.scss';
+
 body {
   padding: 80px 0 20px;
   box-sizing: border-box;
