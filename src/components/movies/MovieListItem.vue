@@ -37,16 +37,37 @@ async function fetchViewPage(id: string) {
     cursor: pointer;
 
     &:hover {
+      position: relative;
       .movie-img {
+        position: relative;
+
+        &:after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          background-color: rgba(0, 0, 0, 0.6);
+          content: '';
+          width: 100%;
+          height: 100%;
+        }
+
         img {
           transform: scale(1.02);
         }
       }
+
+      .movie-info {
+        opacity: 1;
+      }
     }
     .movie-img {
       margin-bottom: 10px;
-      height: calc(100% - 60px);
+      height: 100%;
       overflow: hidden;
+      border-radius: 8px;
+      box-shadow:
+        rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
       img {
         max-width: 100%;
@@ -57,16 +78,26 @@ async function fetchViewPage(id: string) {
     }
 
     .movie-info {
+      position: absolute;
+      width: calc(100% - 30px);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.3s;
+      color: #fff;
+
       strong {
         display: -webkit-box;
         font-weight: 600;
         margin-bottom: 10px;
         white-space: normal;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         padding: 2px 0;
         line-height: 1.2;
+        font-size: 20px;
       }
     }
   }

@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { Movie, MovieInfo } from '../src/types/MovieTypes';
+import { Movie, MovieViewData } from '../src/types/MovieTypes';
 import axios from 'axios';
 
 const { API_KEY } = process.env;
@@ -13,6 +13,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         `https://omdbapi.com?apikey=${API_KEY}&s=${title}&page=${page}`
       );
 
-  const result: Movie | MovieInfo = await response.data;
+  const result: Movie | MovieViewData = await response.data;
   res.status(200).json(result);
 }
