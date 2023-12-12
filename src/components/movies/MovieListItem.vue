@@ -35,12 +35,10 @@ async function fetchViewPage(id: string) {
   li {
     text-align: center;
     cursor: pointer;
+    position: relative;
 
     &:hover {
-      position: relative;
       .movie-img {
-        position: relative;
-
         &:after {
           position: absolute;
           left: 0;
@@ -61,6 +59,7 @@ async function fetchViewPage(id: string) {
       }
     }
     .movie-img {
+      position: relative;
       margin-bottom: 10px;
       height: 100%;
       overflow: hidden;
