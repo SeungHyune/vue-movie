@@ -51,13 +51,15 @@ $color-background-hover: #eee;
             padding: 0 20px;
             .movie-img {
                 text-align: center;
-                margin-bottom: 50px;
-                margin-right: 0;
+                margin: 0 auto 50px;
+
                 img {
                     max-width: 100%;
                 }
             }
             .movie-info {
+                width: 100%;
+
                 .title {
                     font-size: 22px;
                 }
@@ -117,6 +119,14 @@ $color-background-hover: #eee;
                             width: 100%;
                         }
                     }
+                }
+            }
+        }
+
+        main {
+            .movie-viewer {
+                .movie-img {
+                    width: 100%;
                 }
             }
         }

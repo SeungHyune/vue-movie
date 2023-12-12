@@ -4,7 +4,12 @@
     :key="movie.imdbID"
     @click="fetchViewPage(movie.imdbID)">
     <div class="movie-img">
-      <img :src="movie.Poster === 'N/A' ? emptyImage : movie.Poster" />
+      <img
+        :src="
+          movie.Poster === 'N/A'
+            ? emptyImage
+            : ImageResize(movie.Poster, 'SX300', 'SX700')
+        " />
     </div>
     <div class="movie-info">
       <strong>{{ movie.Title }}</strong>
@@ -16,6 +21,7 @@
 <script setup lang="ts">
 import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
+import { ImageResize } from '../../utils/imageResize';
 
 const movieStore = useMovieStore();
 const emptyImage = `https://placehold.co/250x330?text=No+Image`;

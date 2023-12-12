@@ -3,7 +3,13 @@
     v-if="movieStore.movieInfo.Title"
     class="movie-view-page">
     <div
-      :style="{ backgroundImage: `url(${ImageResize()})` }"
+      :style="{
+        backgroundImage: `url(${ImageResize(
+          movieStore.movieInfo.Poster,
+          'SX300',
+          'SX700'
+        )})`
+      }"
       class="movie-sub-page"></div>
     <div class="movie-viewer">
       <div class="movie-img">
@@ -11,7 +17,7 @@
           :src="
             movieStore.movieInfo.Poster === 'N/A'
               ? '/src/images/temporary.jpg'
-              : movieStore.movieInfo.Poster
+              : ImageResize(movieStore.movieInfo.Poster, 'SX300', 'SX700')
           " />
       </div>
       <div class="movie-info">
@@ -48,6 +54,7 @@ import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
 import { useRoute } from 'vue-router';
 import Btn from '../common/Btn.vue';
+import { ImageResize } from '../../utils/imageResize';
 
 const route = useRoute();
 const movieStore = useMovieStore();
@@ -55,12 +62,6 @@ const movieStore = useMovieStore();
 if (typeof route.params.id === 'string') {
   movieStore.fetchMovieViewData(route.params.id);
 }
-
-const ImageResize = () => {
-  return movieStore.movieInfo.Poster.replace('SX300', 'SX700');
-};
-
-console.log(ImageResize);
 </script>
 
 <style scoped lang="scss">
@@ -81,17 +82,23 @@ header {
   display: flex;
 
   .movie-img {
+    width: 350px;
     margin-right: 20px;
+
+    img {
+      max-width: 100%;
+    }
   }
   .movie-info {
     line-height: 1.3;
+    width: calc(100% - 370px);
     h3.title {
       font-size: 26px;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     h3.rating {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       border-radius: 50px;
       background-color: #e13232;
       color: #fff;
@@ -101,7 +108,7 @@ header {
 
     .movie-info-list {
       li {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
 
         strong {
           display: block;
