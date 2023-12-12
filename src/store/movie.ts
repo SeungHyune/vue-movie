@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia';
-import { Movies, MovieInfo } from '../types/MovieTypes';
-import axios from 'axios';
+import { Movies, MovieViewData, MovieSearchList } from '../types/MovieTypes';
+import axios, { AxiosResponse } from 'axios';
 
 export const useMovieStore = defineStore('movie', {
   state: () => ({
     movies: [] as Movies,
-    movieInfo: {} as MovieInfo,
+    movieInfo: {} as MovieViewData,
     title: '',
     page: 1,
     totalResults: 0,
@@ -32,7 +32,7 @@ export const useMovieStore = defineStore('movie', {
             params: { title: this.title, page: this.page }
           });
 
-          const { data } = response;
+          const { data }: AxiosResponse<MovieSearchList> = response;
           const { Search, totalResults } = data;
 
           if (Search) {
@@ -48,15 +48,16 @@ export const useMovieStore = defineStore('movie', {
     },
     async fetchMovieViewData(id: string) {
       this.isLoading = true;
-      this.movieInfo = {} as MovieInfo;
+      this.movieInfo = {} as MovieViewData;
 
       try {
         const response = await axios.get('/api/moviesAPI', {
           params: { id }
         });
 
-        const { data } = response;
+        const { data }: AxiosResponse<MovieViewData> = response;
         this.movieInfo = data;
+        console.log(this.movieInfo);
       } catch (error) {
         console.log(error);
       } finally {
