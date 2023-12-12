@@ -42,7 +42,7 @@ export const useMovieStore = defineStore('movie', {
 
           if (Search) {
             this.movies = [...this.movies, ...Search];
-            this.totalResults = totalResults;
+            this.totalResults = Number(totalResults);
           }
         }
       } catch (e) {

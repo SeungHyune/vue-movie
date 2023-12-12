@@ -16,7 +16,7 @@
       </div>
       <div class="movie-info">
         <h3 class="title">{{ movieStore.movieInfo.Title }}</h3>
-        <h3 class="rating">{{ movieStore.movieInfo.imdbRating }}</h3>
+        <h3 class="rating">{{ movieStore.movieInfo.Ratings[0].Value }}</h3>
         <ul class="movie-info-list">
           <li>
             <strong>Director</strong
