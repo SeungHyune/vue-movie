@@ -5,7 +5,8 @@ export const setItem = (key: string, value: boolean) => {
 };
 
 export const getItem = (key: string, defaultValue: boolean) => {
-  const currentTheme = JSON.parse(storage.getItem(key)) || defaultValue;
+  const currentTheme =
+    JSON.parse(storage.getItem(key) as string) || defaultValue;
 
   return currentTheme;
 };

@@ -13,7 +13,7 @@ export const useMovieStore = defineStore('movie', {
     page: 1,
     totalResults: 0,
     isLoading: false,
-    isTheme: getItem(THEME_STORAGE_KEY) || false
+    isTheme: getItem(THEME_STORAGE_KEY, false)
   }),
   actions: {
     themeChange() {
