@@ -1,6 +1,9 @@
 import { defineStore } from 'pinia';
 import { Movies, MovieViewData, MovieSearchList } from '../types/MovieTypes';
 import axios, { AxiosResponse } from 'axios';
+import { getItem, setItem } from '../utils/storage';
+
+const THEME_STORAGE_KEY = 'theme';
 
 export const useMovieStore = defineStore('movie', {
   state: () => ({
@@ -10,12 +13,13 @@ export const useMovieStore = defineStore('movie', {
     page: 1,
     totalResults: 0,
     isLoading: false,
-    isTheme: false
+    isTheme: getItem(THEME_STORAGE_KEY) || false
   }),
   actions: {
     themeChange() {
-      document.body.classList.toggle('dark');
       this.isTheme = !this.isTheme;
+      setItem(THEME_STORAGE_KEY, this.isTheme);
+      document.body.classList.toggle('dark');
     },
     async fetchMoviesListData(title?: string) {
       if (this.isLoading) return;

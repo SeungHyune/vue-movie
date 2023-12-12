@@ -14,6 +14,17 @@
 import router from '../../routes/index';
 import Search from '../search/Search.vue';
 import Theme from '../common/Theme.vue';
+import { useMovieStore } from '../../store/movie';
+
+const movieStore = useMovieStore();
+console.log(movieStore.isTheme, typeof movieStore.isTheme);
+if (movieStore.isTheme) {
+  document.body.classList.add('dark');
+  console.log(2);
+} else {
+  document.body.classList.remove('dark');
+  console.log(1);
+}
 </script>
 
 <style scoped lang="scss">
