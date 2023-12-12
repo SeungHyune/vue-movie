@@ -4,10 +4,7 @@
     :key="movie.imdbID"
     @click="fetchViewPage(movie.imdbID)">
     <div class="movie-img">
-      <img
-        :src="
-          movie.Poster === 'N/A' ? '/src/images/temporary.jpg' : movie.Poster
-        " />
+      <img :src="movie.Poster === 'N/A' ? emptyImage : movie.Poster" />
     </div>
     <div class="movie-info">
       <strong>{{ movie.Title }}</strong>
@@ -21,6 +18,7 @@ import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
 
 const movieStore = useMovieStore();
+const emptyImage = `https://placehold.co/250x330?text=No+Image`;
 
 async function fetchViewPage(id: string) {
   router.push({
@@ -54,6 +52,7 @@ async function fetchViewPage(id: string) {
         max-width: 100%;
         height: 100%;
         transition: transform 0.3s;
+        object-fit: cover;
       }
     }
 
