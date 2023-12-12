@@ -13,7 +13,12 @@ export interface MovieSearchList {
   Response: string;
 }
 
-export interface MovieInfo {
+export type MovieViewData = Pick<
+  MovieViewResponse,
+  'Title' | 'Poster' | 'Director' | 'Actors' | 'Released' | 'Plot' | 'Ratings'
+>;
+
+export interface MovieViewResponse {
   Title: string;
   Year: string;
   Rated: string;
