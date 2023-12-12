@@ -3,7 +3,7 @@
     v-if="movieStore.movieInfo.Title"
     class="movie-view-page">
     <div
-      :style="{ backgroundImage: `url(${movieStore.movieInfo.Poster})` }"
+      :style="{ backgroundImage: `url(${ImageResize()})` }"
       class="movie-sub-page"></div>
     <div class="movie-viewer">
       <div class="movie-img">
@@ -55,6 +55,12 @@ const movieStore = useMovieStore();
 if (typeof route.params.id === 'string') {
   movieStore.fetchMovieViewData(route.params.id);
 }
+
+const ImageResize = () => {
+  return movieStore.movieInfo.Poster.replace('SX300', 'SX700');
+};
+
+console.log(ImageResize);
 </script>
 
 <style scoped lang="scss">
