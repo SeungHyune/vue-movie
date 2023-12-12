@@ -66,7 +66,6 @@ async function fetchViewPage(id: string) {
     }
     .movie-img {
       position: relative;
-      margin-bottom: 10px;
       height: 100%;
       overflow: hidden;
       border-radius: 8px;
