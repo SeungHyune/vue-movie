@@ -4,7 +4,7 @@
     class="movie-view-page">
     <div
       :style="{
-        backgroundImage: `url(${ImageResize(
+        backgroundImage: `url(${imageResize(
           movieStore.movieInfo.Poster,
           'SX300',
           'SX700'
@@ -15,14 +15,14 @@
       <div class="movie-img">
         <img
           :src="
-            movieStore.movieInfo.Poster === 'N/A'
-              ? '/src/images/temporary.jpg'
-              : ImageResize(movieStore.movieInfo.Poster, 'SX300', 'SX700')
+            imageUrlChk(movieStore.movieInfo.Poster, 'N/A')
+              ? emptyImage
+              : imageResize(movieStore.movieInfo.Poster, 'SX300', 'SX700')
           " />
       </div>
       <div class="movie-info">
         <h3 class="title">{{ movieStore.movieInfo.Title }}</h3>
-        <h3 class="rating">{{ movieStore.movieInfo.Ratings[0].Value }}</h3>
+        <h3 class="rating">{{ movieStore.movieInfo.imdbRating }}</h3>
         <ul class="movie-info-list">
           <li>
             <strong>Director</strong
@@ -54,7 +54,8 @@ import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
 import { useRoute } from 'vue-router';
 import Btn from '../common/Btn.vue';
-import { ImageResize } from '../../utils/imageResize';
+import { imageUrlChk } from '../../utils/imageUrlChk';
+import { imageResize } from '../../utils/imageResize';
 
 const route = useRoute();
 const movieStore = useMovieStore();
@@ -62,6 +63,8 @@ const movieStore = useMovieStore();
 if (typeof route.params.id === 'string') {
   movieStore.fetchMovieViewData(route.params.id);
 }
+
+const emptyImage = `https://placehold.co/350x520?text=No+Image`;
 </script>
 
 <style scoped lang="scss">
@@ -129,3 +132,4 @@ header {
   }
 }
 </style>
+../../utils/ImageUrlCheck ../../utils/imageUrlChk

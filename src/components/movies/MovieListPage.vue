@@ -50,7 +50,7 @@ const observer = new IntersectionObserver(
     }
   },
   {
-    threshold: 1
+    threshold: 0.5
   }
 );
 
@@ -103,6 +103,6 @@ onMounted(() => {
   width: 100%;
   height: 100px;
   left: 0;
-  bottom: 0;
+  bottom: -100px;
 }
 </style>

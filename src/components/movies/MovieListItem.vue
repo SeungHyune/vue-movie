@@ -6,9 +6,9 @@
     <div class="movie-img">
       <img
         :src="
-          movie.Poster === 'N/A'
+          imageUrlChk(movie.Poster, 'N/A')
             ? emptyImage
-            : ImageResize(movie.Poster, 'SX300', 'SX700')
+            : imageResize(movie.Poster, 'SX300', 'SX700')
         " />
     </div>
     <div class="movie-info">
@@ -21,7 +21,8 @@
 <script setup lang="ts">
 import { useMovieStore } from '../../store/movie';
 import router from '../../routes/index';
-import { ImageResize } from '../../utils/imageResize';
+import { imageResize } from '../../utils/imageResize';
+import { imageUrlChk } from '../../utils/imageUrlChk';
 
 const movieStore = useMovieStore();
 const emptyImage = `https://placehold.co/250x330?text=No+Image`;
@@ -62,6 +63,7 @@ async function fetchViewPage(id: string) {
 
       .movie-info {
         opacity: 1;
+        transform: translate(-50%, -60%);
       }
     }
     .movie-img {
@@ -107,3 +109,4 @@ async function fetchViewPage(id: string) {
   }
 }
 </style>
+../../utils/ImageUrlCheck

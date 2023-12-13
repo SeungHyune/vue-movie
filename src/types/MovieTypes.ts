@@ -15,7 +15,13 @@ export interface MovieSearchList {
 
 export type MovieViewData = Pick<
   MovieViewResponse,
-  'Title' | 'Poster' | 'Director' | 'Actors' | 'Released' | 'Plot' | 'Ratings'
+  | 'Title'
+  | 'Poster'
+  | 'Director'
+  | 'Actors'
+  | 'Released'
+  | 'Plot'
+  | 'imdbRating'
 >;
 
 export interface MovieViewResponse {

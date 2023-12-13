@@ -65,6 +65,7 @@ export const useMovieStore = defineStore('movie', {
         });
 
         const { data }: AxiosResponse<MovieViewData> = response;
+
         this.movieInfo = data;
       } catch (error) {
         console.log(error);
