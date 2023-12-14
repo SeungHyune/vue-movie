@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 const scrollTop = () => {
-  window.scrollTo({ top: location, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 </script>
 
