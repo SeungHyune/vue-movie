@@ -2,12 +2,14 @@
   <TheLoader />
   <Header />
   <Main />
+  <TopButton />
 </template>
 
 <script setup lang="ts">
 import Header from './components/layout/Header.vue';
 import Main from './components/layout/Main.vue';
 import TheLoader from './components/common/TheLoader.vue';
+import TopButton from './components/common/TopButton.vue';
 </script>
 
 <style>
