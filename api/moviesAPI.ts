@@ -14,5 +14,5 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       );
 
   const result: Movie | MovieViewData = await response.data;
-  result.status(200).json(result);
+  res.status(200).json(result);
 }
